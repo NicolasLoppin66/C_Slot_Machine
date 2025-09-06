@@ -2,17 +2,18 @@
 #include <stdlib.h>
 #include <time.h>
 
-//  🎰 🎉 ✨ ☹️ 🎲
-
 int main() {
     const char *symbols[] = {"🍒", "🍋", "🔔", "💎", "7", "🍀"};
     const int symbol_count = sizeof(symbols) / sizeof(symbols[0]);
+    char choice;
 
     srand( (unsigned int) time(NULL) );
 
     printf("🎰 Welcome to the slot machine ! 🎰\n");
 
-    // 0 ... 999, 999 / 6 = 0,1,2,3,4,5
+    do
+    {
+        // 0 ... 999, 999 / 6 = 0,1,2,3,4,5
     int i1 = rand() % symbol_count;
     int i2 = rand() % symbol_count;
     int i3 = rand() % symbol_count;
@@ -32,6 +33,13 @@ int main() {
     {
         printf("☹️ No match, better luck next time! ☹️\n");
     }
+
+    printf("Play again? (y/n): ");
+    scanf(" %c", &choice);
+
+    } while (choice == 'y' || choice == 'Y');
+    
+    printf("Thanks for playing! 🎲\n");
 
     return 0;
 }
